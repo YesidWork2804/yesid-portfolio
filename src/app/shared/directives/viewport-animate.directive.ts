@@ -21,14 +21,6 @@ export class ViewportAnimateDirective implements AfterViewInit {
   ngAfterViewInit(): void {
     const element = this.el.nativeElement;
 
-    if (this.prefersReducedMotion()) {
-      return;
-    }
-
-    if (this.isSmallScreen()) {
-      return;
-    }
-
     const baseHidden = ['opacity-0'];
     const baseVisible = ['opacity-100'];
 
@@ -36,17 +28,6 @@ export class ViewportAnimateDirective implements AfterViewInit {
       this.animation === 'fade-up' ? ['translate-y-4'] : [];
     const transformVisible =
       this.animation === 'fade-up' ? ['translate-y-0'] : [];
-
-    element.classList.add(
-      ...baseHidden,
-      ...transformHidden,
-      'transition-opacity',
-      'transition-transform',
-      'will-change-transform',
-      'will-change-opacity',
-      'duration-700',
-      'ease-out',
-    );
 
     const reveal = () => {
       element.classList.remove(...baseHidden, ...transformHidden);
@@ -59,10 +40,32 @@ export class ViewportAnimateDirective implements AfterViewInit {
         const children = Array.from(nodeList);
         children.forEach((child: HTMLElement, i) => {
           child.style.transitionDelay = `${i * 80}ms`;
+          child.classList.remove(...baseHidden, ...transformHidden);
           child.classList.add('opacity-100', 'translate-y-0');
         });
       }
     };
+
+    if (this.prefersReducedMotion()) {
+      reveal();
+      return;
+    }
+
+    if (this.isSmallScreen()) {
+      reveal();
+      return;
+    }
+
+    element.classList.add(
+      ...baseHidden,
+      ...transformHidden,
+      'transition-opacity',
+      'transition-transform',
+      'will-change-transform',
+      'will-change-opacity',
+      'duration-700',
+      'ease-out',
+    );
 
     const observer = new IntersectionObserver(
       (entries) => {
