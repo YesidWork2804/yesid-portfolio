@@ -160,7 +160,7 @@
     "details": "Details",
     "tech": "Tech stack",
     "metricValues": {
-      "fleet_management": "Fleet management",
+      "fleet_management": "Admin panel",
       "academic_system": "Academic system",
       "gamification": "Gamification",
       "predictable_state": "Predictable state"
@@ -185,9 +185,9 @@
       "state": "State"
     },
     "neardental": {
-      "title": "NEARDENTAL - Fleet Management",
-      "description": "Fleet management platform with robust admin workflows and real-time operations visibility.",
-      "longDescription": "Fleet management solution built with Angular + Node.js + MySQL and deployed on AWS.\n\nHighlights:\n- Admin dashboards and operational views\n- Secure API design\n- Scalable architecture ready for growth"
+      "title": "NEARDENTAL - Admin panel",
+      "description": "Administrative panel with robust workflows and real-time operational visibility.",
+      "longDescription": "Administrative panel built with Angular + Node.js + MySQL and deployed on AWS.\n\nHighlights:\n- Admin dashboards and operational views\n- Secure API design\n- Scalable architecture ready for growth"
     },
     "brainbike": {
       "title": "Gopapaya - Gamified platform",

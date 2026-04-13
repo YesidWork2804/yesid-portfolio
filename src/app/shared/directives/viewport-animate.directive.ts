@@ -25,6 +25,10 @@ export class ViewportAnimateDirective implements AfterViewInit {
       return;
     }
 
+    if (this.isSmallScreen()) {
+      return;
+    }
+
     const baseHidden = ['opacity-0'];
     const baseVisible = ['opacity-100'];
 
@@ -36,7 +40,10 @@ export class ViewportAnimateDirective implements AfterViewInit {
     element.classList.add(
       ...baseHidden,
       ...transformHidden,
-      'transition-all',
+      'transition-opacity',
+      'transition-transform',
+      'will-change-transform',
+      'will-change-opacity',
       'duration-700',
       'ease-out',
     );
@@ -88,6 +95,13 @@ export class ViewportAnimateDirective implements AfterViewInit {
     return (
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
+  private isSmallScreen(): boolean {
+    return (
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(max-width: 640px)').matches
     );
   }
 }

@@ -203,7 +203,7 @@
     "details": "Detalles",
     "tech": "Tecnologías",
     "metricValues": {
-      "fleet_management": "Gestión de flota",
+      "fleet_management": "Panel administrativo",
       "academic_system": "Sistema académico",
       "gamification": "Gamificación",
       "predictable_state": "Estado predecible"
@@ -228,7 +228,7 @@
       "state": "Estado"
     },
     "neardental": {
-      "title": "NEARDENTAL - Fleet Management",
+      "title": "NEARDENTAL - Panel administrativo",
       "description": "Plataforma de gestión de flota con flujos administrativos robustos y visibilidad operativa.",
       "longDescription": "Solución de gestión de flota construida con Angular + Node.js + MySQL y desplegada en AWS.\n\nDestacados:\n- Dashboards de administración y operación\n- Diseño de API segura\n- Arquitectura escalable"
     },

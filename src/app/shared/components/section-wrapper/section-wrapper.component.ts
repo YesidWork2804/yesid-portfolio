@@ -1,9 +1,15 @@
-import { Component, ElementRef, Input, AfterViewInit, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  AfterViewInit,
+  inject,
+} from '@angular/core';
 
 @Component({
   selector: 'app-section-wrapper',
   standalone: true,
-  templateUrl: './section-wrapper.component.html'
+  templateUrl: './section-wrapper.component.html',
 })
 export class SectionWrapperComponent implements AfterViewInit {
   private readonly host = inject(ElementRef<HTMLElement>);
@@ -29,6 +35,11 @@ export class SectionWrapperComponent implements AfterViewInit {
     // We avoid runtime deps (AOS) by using IntersectionObserver + Tailwind transitions.
     const el = this.host.nativeElement;
 
+    if (this.prefersReducedMotion() || this.isSmallScreen()) {
+      this.visible = true;
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -38,9 +49,23 @@ export class SectionWrapperComponent implements AfterViewInit {
           observer.disconnect();
         }
       },
-      { root: null, threshold: 0.15 }
+      { root: null, threshold: 0.15 },
     );
 
     observer.observe(el);
+  }
+
+  private prefersReducedMotion(): boolean {
+    return (
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
+  private isSmallScreen(): boolean {
+    return (
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(max-width: 640px)').matches
+    );
   }
 }
