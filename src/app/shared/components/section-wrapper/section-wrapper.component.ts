@@ -16,7 +16,7 @@ export class SectionWrapperComponent implements AfterViewInit {
 
   @Input() padded = true;
 
-  visible = false;
+  visible = true;
 
   get sectionClasses(): string {
     const base = 'mx-auto max-w-6xl px-4';
@@ -40,6 +40,8 @@ export class SectionWrapperComponent implements AfterViewInit {
       return;
     }
 
+    this.visible = false;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -53,6 +55,15 @@ export class SectionWrapperComponent implements AfterViewInit {
     );
 
     observer.observe(el);
+
+    requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || 0;
+      const isVisible = rect.top < vh && rect.bottom > 0;
+      if (!isVisible) return;
+      this.visible = true;
+      observer.disconnect();
+    });
   }
 
   private prefersReducedMotion(): boolean {
