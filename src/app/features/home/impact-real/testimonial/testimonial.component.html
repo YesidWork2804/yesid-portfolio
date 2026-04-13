@@ -1,0 +1,23 @@
+<div class="mt-10" appViewportAnimate="fade-up">
+  <div class="rounded-2xl border border-white/10 dark:border-slate-800/80 bg-white/60 dark:bg-surface/40 backdrop-blur p-6 flex flex-col sm:flex-row gap-4">
+    <img
+      [src]="testimonial.avatar"
+      alt=""
+      class="h-14 w-14 rounded-full object-cover border border-white/10"
+      loading="lazy"
+    />
+
+    <div class="min-w-0">
+      <div class="text-sm text-slate-800 dark:text-slate-100 ui-transition">
+        <span class="text-primary">“</span>{{ testimonial.quoteKey | translate }}<span class="text-primary">”</span>
+      </div>
+
+      <div class="mt-4 text-xs text-slate-600 dark:text-slate-300 ui-transition">
+        <span class="font-semibold">{{ testimonial.name }}</span>
+        @if (testimonial.roleKey) {
+          <span class="ml-2">{{ testimonial.roleKey | translate }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</div>

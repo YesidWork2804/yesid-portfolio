@@ -1,0 +1,189 @@
+<header [class]="headerClasses">
+  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+    <button
+      type="button"
+      class="lg:hidden h-10 w-10 grid place-items-center rounded-lg border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+      (click)="toggleMobile()"
+      [attr.aria-label]="mobileOpen ? ('nav.close_menu' | translate) : ('nav.open_menu' | translate)"
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <a (click)="goTo('home')" class="cursor-pointer select-none">
+      <div class="leading-tight">
+        <div class="text-sm sm:text-base font-semibold tracking-tight text-slate-900 dark:text-slate-100 ui-transition">
+          Yesid Hernández
+        </div>
+        <div class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 ui-transition">
+          {{ 'nav.subtitle' | translate }}
+        </div>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-6">
+      @for (s of sections; track s.id) {
+        <button
+          type="button"
+          (click)="goTo(s.fragment)"
+          class="text-sm ui-transition hover:text-slate-900 dark:hover:text-white"
+          [class.text-primary]="scrollSpy.activeSection === s.id"
+          [class.text-slate-600]="scrollSpy.activeSection !== s.id"
+          [class.dark:text-slate-300]="scrollSpy.activeSection !== s.id"
+        >
+          {{ s.labelKey | translate }}
+        </button>
+      }
+    </nav>
+
+    <div class="hidden lg:flex items-center gap-2">
+      <div class="flex items-center gap-2 pr-3 border-r border-slate-200/70 dark:border-slate-800">
+        <button
+          type="button"
+          (click)="setLang('es')"
+          class="text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+          [class.text-primary]="currentLang === 'es'"
+          [class.text-slate-700]="currentLang !== 'es'"
+          [class.dark:text-slate-200]="currentLang !== 'es'"
+        >
+          ES
+        </button>
+        <button
+          type="button"
+          (click)="setLang('en')"
+          class="text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+          [class.text-primary]="currentLang === 'en'"
+          [class.text-slate-700]="currentLang !== 'en'"
+          [class.dark:text-slate-200]="currentLang !== 'en'"
+        >
+          EN
+        </button>
+      </div>
+
+      <button
+        type="button"
+        (click)="toggleTheme()"
+        class="relative h-9 w-9 rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-100 grid place-items-center ui-transition hover:bg-slate-50 dark:hover:bg-surface-200"
+        [attr.aria-label]="isDark ? ('nav.light_mode' | translate) : ('nav.dark_mode' | translate)"
+      >
+        <span class="absolute inset-0 rounded-full ring-1 ring-slate-200/60 dark:ring-slate-700/60"></span>
+
+        <svg
+          class="h-4 w-4 text-amber-500 ui-transition"
+          [class.opacity-0]="isDark"
+          [class.rotate-90]="isDark"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2" />
+          <path
+            d="M12 2v2M12 20v2M4 12H2M22 12h-2M5.6 5.6 4.2 4.2M19.8 19.8l-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <svg
+          class="absolute h-4 w-4 text-slate-200 ui-transition"
+          [class.opacity-0]="!isDark"
+          [class.-rotate-90]="!isDark"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (mobileOpen) {
+  <div class="fixed inset-0 z-50">
+    <button
+      type="button"
+      class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+      (click)="closeMobile()"
+      [attr.aria-label]="'nav.close_menu' | translate"
+    ></button>
+
+    <aside class="absolute left-0 top-0 h-full w-80 max-w-[85vw] bg-white dark:bg-surface border-r border-slate-200 dark:border-slate-800 ui-transition">
+      <div class="p-4 flex items-center justify-between border-b border-slate-200/70 dark:border-slate-800">
+        <div>
+          <div class="font-semibold text-slate-900 dark:text-slate-100 ui-transition">Yesid Hernández</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 ui-transition">{{ 'nav.subtitle' | translate }}</div>
+        </div>
+        <button
+          type="button"
+          class="h-10 w-10 grid place-items-center rounded-lg border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+          (click)="closeMobile()"
+          [attr.aria-label]="'nav.close_menu' | translate"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-4 space-y-2">
+        @for (s of sections; track s.id) {
+          <button
+            type="button"
+            (click)="goTo(s.fragment)"
+            class="w-full text-left px-3 py-2 rounded-lg ui-transition"
+            [class.bg-primary]="scrollSpy.activeSection === s.id"
+            [class.text-white]="scrollSpy.activeSection === s.id"
+            [class.bg-slate-100]="scrollSpy.activeSection !== s.id"
+            [class.dark:bg-surface-100]="scrollSpy.activeSection !== s.id"
+            [class.text-slate-800]="scrollSpy.activeSection !== s.id"
+            [class.dark:text-slate-100]="scrollSpy.activeSection !== s.id"
+          >
+            {{ s.labelKey | translate }}
+          </button>
+        }
+      </div>
+
+      <div class="p-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            (click)="setLang('es')"
+            class="text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-700 ui-transition"
+            [class.text-primary]="currentLang === 'es'"
+          >
+            ES
+          </button>
+          <button
+            type="button"
+            (click)="setLang('en')"
+            class="text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-700 ui-transition"
+            [class.text-primary]="currentLang === 'en'"
+          >
+            EN
+          </button>
+        </div>
+
+        <button
+          type="button"
+          (click)="toggleTheme()"
+          class="h-9 w-9 rounded-full border border-slate-200 dark:border-slate-700 grid place-items-center ui-transition"
+          [attr.aria-label]="isDark ? ('nav.light_mode' | translate) : ('nav.dark_mode' | translate)"
+        >
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7.5 7.5 0 1 0 21 14.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </aside>
+  </div>
+}

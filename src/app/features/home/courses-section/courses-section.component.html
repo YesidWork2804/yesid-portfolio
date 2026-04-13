@@ -1,0 +1,23 @@
+<div appViewportAnimate="fade-up">
+  <h2 class="heading-lg text-slate-900 dark:text-slate-100 ui-transition">
+    {{ 'courses.title' | translate }}
+  </h2>
+  <p class="mt-4 text-slate-600 dark:text-slate-300 ui-transition max-w-3xl">
+    {{ 'courses.subtitle' | translate }}
+  </p>
+
+  <div class="mt-6 flex flex-wrap items-center gap-3">
+    <a
+      class="inline-flex items-center justify-center h-11 px-5 rounded-xl bg-primary text-white ui-transition hover:bg-primary-700"
+      [href]="platziProfileUrl"
+      target="_blank"
+      rel="noopener"
+    >
+      <img class="h-5 w-5 mr-2 object-contain" src="/assets/icons/icon-platzi.svg" alt="Platzi" />
+      {{ 'courses.cta_platzi' | translate }}
+    </a>
+    <div class="text-xs text-slate-500 dark:text-slate-400 ui-transition">
+      {{ 'courses.note' | translate }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="mt-8" appViewportAnimate="fade-up" [staggerChildren]="true">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    @for (m of milestones; track m.titleKey) {
+      <div data-stagger class="opacity-0 translate-y-4 ui-transition duration-700 rounded-2xl border border-white/10 dark:border-slate-800/80 bg-white/60 dark:bg-surface/40 backdrop-blur p-5">
+        <div class="text-xs text-slate-600 dark:text-slate-300 ui-transition">
+          {{ m.dateKey | translate }}
+        </div>
+        <div class="mt-2 text-sm font-semibold text-slate-900 dark:text-slate-100 ui-transition">
+          {{ m.titleKey | translate }}
+        </div>
+        <div class="mt-2 text-sm text-slate-700 dark:text-slate-200 ui-transition">
+          {{ m.descriptionKey | translate }}
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          @for (t of m.tech; track t) {
+            <span class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-white/10 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 bg-white/40 dark:bg-surface/30">
+              <app-tech-icon [name]="t" [size]="18" />
+              <span>{{ t }}</span>
+            </span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

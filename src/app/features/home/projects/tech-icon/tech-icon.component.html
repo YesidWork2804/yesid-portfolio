@@ -1,0 +1,11 @@
+<img
+  [src]="url"
+  [style.width.px]="size"
+  [style.height.px]="size"
+  class="inline-block shrink-0 align-[-2px] opacity-90 object-contain"
+  [class.dark:invert]="useInvertOnDark"
+  [class.dark:brightness-200]="useInvertOnDark"
+  [attr.alt]="name"
+  loading="lazy"
+  (error)="onError()"
+/>

@@ -1,0 +1,282 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "stack": "Stack",
+    "projects": "Projects",
+    "impact": "Impact",
+    "experience": "Experience",
+    "courses": "Courses",
+    "contact": "Contact",
+    "subtitle": "Full Stack Dev",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "dark_mode": "Switch to dark mode",
+    "light_mode": "Switch to light mode"
+  },
+  "about": {
+    "title": "About me",
+    "body": "Full Stack Developer (Systems Engineer) with 3+ years building scalable, user-focused web applications. I aim for measurable outcomes, strong performance and maintainable code, working across frontend, backend and data. I’ve contributed in contexts like business management, gamification and education; I adapt quickly to new environments and enjoy taking on challenges with discipline and ownership.",
+    "facts": {
+      "location_label": "Location",
+      "location_value": "Bello, Antioquia",
+      "availability_label": "Availability",
+      "availability_value": "Immediate",
+      "mode_label": "Preferred mode",
+      "mode_value": "Remote / Hybrid"
+    },
+    "soft_skills": {
+      "title": "Soft skills",
+      "communication": "Clear communication with strong follow-up",
+      "teamwork": "Collaboration and empathy in teams",
+      "ownership": "Ownership from start to delivery",
+      "adaptability": "Continuous learning and fast adaptation"
+    },
+    "cta_cv": "Download CV"
+  },
+  "stack": {
+    "title": "Technical stack",
+    "subtitle": "Technologies I use frequently and my proficiency level in real projects.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "db": "DB",
+      "devops": "DevOps",
+      "tools": "Tools"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Timeline of roles and responsibilities focused on impact.",
+    "total_years_months": "Total experience: {{years}} years {{months}} months",
+    "total_years": "Total experience: {{years}} years",
+    "total_months": "Total experience: {{months}} months",
+    "items": {
+      "neardental": {
+        "company": "NEARDENTAL SAS",
+        "role": "Full Stack Developer",
+        "period": "Mar 2023 → Apr 2026",
+        "b1": "Development and maintenance of a production fleet platform.",
+        "b2": "UX/performance improvements and key modules delivery.",
+        "b3": "Integrations, deployments and support for real operations."
+      },
+      "upc": {
+        "company": "Universidad Popular del Cesar",
+        "role": "Developer (Academic project)",
+        "period": "Jun 2022 → Jan 2023",
+        "b1": "Built modules and screens for academic workflows.",
+        "b2": "Implemented role-based reports and usability improvements for academic tracking."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "If you have a challenge or an opportunity, let's talk.",
+    "sent": "Message sent. Thank you.",
+    "error": "Could not send. Configure Formspree in environment or try again later.",
+    "note": "Sending uses Formspree. Configure contact.formspreeEndpoint in src/environments/environment.ts",
+    "links": {
+      "email": "Gmail",
+      "github": "GitHub",
+      "gitlab": "GitLab",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send",
+      "sending": "Sending..."
+    },
+    "errors": {
+      "name": {
+        "required": "Your name is required.",
+        "minlength": "Your name must be at least 2 characters."
+      },
+      "email": {
+        "required": "Your email is required.",
+        "email": "Enter a valid email."
+      },
+      "message": {
+        "required": "Message is required.",
+        "minlength": "Message must be at least 10 characters."
+      }
+    }
+  },
+  "courses": {
+    "title": "Courses",
+    "subtitle": "You can view my courses and certifications from my profile.",
+    "cta_platzi": "Open Platzi profile",
+    "note": "Opens in a new tab."
+  },
+  "hero": {
+    "kicker": "Portfolio",
+    "greeting": "Hi, I'm Yesid.",
+    "role_1": "Full Stack Developer",
+    "role_2": "Desarrollador Full Stack",
+    "subtitle": "I build reliable web applications with great UX and clean architecture.",
+    "cta_projects": "View projects",
+    "cta_cv": "Download CV",
+    "photo_alt": "Profile photo"
+  },
+  "sections": {
+    "about": {
+      "title": "About",
+      "body": "I enjoy building products end-to-end: frontend, backend and data."
+    },
+    "projects": {
+      "title": "Projects",
+      "body": "A selection of projects focused on performance, maintainability and real business value.",
+      "card_1_title": "Project A",
+      "card_1_body": "Short description and key outcomes.",
+      "card_2_title": "Project B",
+      "card_2_body": "Short description and key outcomes.",
+      "card_3_title": "Project C",
+      "card_3_body": "Short description and key outcomes."
+    },
+    "impact": {
+      "title": "Impact",
+      "body": "Metrics that summarize results and improvements delivered.",
+      "metric_1": "Projects delivered",
+      "metric_2": "Performance improvement",
+      "metric_3": "Years of experience"
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "Let's talk about your next project.",
+      "cta": "Send message"
+    }
+  },
+  "footer": {
+    "github": "GitHub",
+    "gitlab": "GitLab",
+    "email": "Email",
+    "copied": "Copied",
+    "credits": "Built with Angular and Tailwind"
+  },
+  "projects": {
+    "featured": "Featured",
+    "close": "Close",
+    "details": "Details",
+    "tech": "Tech stack",
+    "metricValues": {
+      "fleet_management": "Fleet management",
+      "academic_system": "Academic system",
+      "gamification": "Gamification",
+      "predictable_state": "Predictable state"
+    },
+    "filters": {
+      "all": "All",
+      "fullstack": "Full Stack",
+      "frontend": "Frontend"
+    },
+    "categories": {
+      "fullstack": "Full Stack",
+      "frontend": "Frontend"
+    },
+    "links": {
+      "github": "GitHub"
+    },
+    "metrics": {
+      "stack": "Stack",
+      "role": "Role",
+      "scope": "Scope",
+      "focus": "Focus",
+      "state": "State"
+    },
+    "neardental": {
+      "title": "NEARDENTAL - Fleet Management",
+      "description": "Fleet management platform with robust admin workflows and real-time operations visibility.",
+      "longDescription": "Fleet management solution built with Angular + Node.js + MySQL and deployed on AWS.\n\nHighlights:\n- Admin dashboards and operational views\n- Secure API design\n- Scalable architecture ready for growth"
+    },
+    "brainbike": {
+      "title": "Gopapaya - Gamified platform",
+      "description": "Gamified experience with predictable state management and performance-first UI.",
+      "longDescription": "Gamified platform built with Angular (NgRx/RxJS) and Node.js.\n\nHighlights:\n- Strong state architecture with NgRx\n- Modular UI components\n- Backend services for gameplay and progress"
+    },
+    "upc": {
+      "title": "Universidad Popular del Cesar - Academic system",
+      "description": "Academic workflows system focused on maintainability and containerized deployment.",
+      "longDescription": "Academic system built with Angular and Docker-based environments.\n\nHighlights:\n- Containerized setup with Docker\n- Clean module boundaries\n- Stable delivery pipelines"
+    },
+    "screens": {
+      "neardental-fleet": {
+        "1": "Indicators dashboard: charts of trips by vehicle type and key metrics to support decisions.",
+        "2": "Role-based login: controlled access depending on user permissions.",
+        "3": "Role-specific manual: guidance to speed up adoption and reduce operational errors.",
+        "4": "Fleet availability: historical vehicle status tracking by company/station for better control.",
+        "5": "Team operativity: productivity visualizations to spot improvement opportunities.",
+        "6": "Trip KPIs: impact indicators with calculation explanations and clean visual distribution."
+      },
+      "brain-bike": {
+        "1": "Login screen: secure entry and session control.",
+        "2": "Session calendar: scheduling over time to improve continuity.",
+        "3": "Live game: a real-time view that showcases engagement and usage.",
+        "4": "Main dashboard: quick access to the most used modules.",
+        "5": "Games catalog: variety of game types to keep motivation high.",
+        "6": "User manual: support to reduce friction and explain features clearly."
+      },
+      "upc-academic": {
+        "1": "Login: centralized access for academic users.",
+        "2": "Reports: parameter-based queries for monitoring and decisions.",
+        "3": "Modal example: course creation with guided, consistent flows.",
+        "4": "User management: grant/revoke permissions and manage access.",
+        "5": "Grades tracking: record/view/edit with clear evaluation criteria.",
+        "6": "File upload: download template and upload Excel using a defined format."
+      }
+    }
+  },
+  "impact": {
+    "title": "Real Impact",
+    "subtitle": "Visual evidence that the software was used by real people in real contexts.",
+    "metrics": {
+      "companies": "+30 companies using the fleet platform",
+      "vehicles": "+800 managed vehicles",
+      "years": "+3 years of continuous development"
+    },
+    "gallery": {
+      "title": "Evidence gallery",
+      "subtitle": "Real screenshots and photos of the software in operation.",
+      "caption_1": "Field testing: bike + track simulation to validate the experience",
+      "caption_2": "Real-time monitoring: metrics dashboard during the session",
+      "caption_3": "Guided demo: team reviewing the system screens",
+      "caption_4": "User flow execution: interaction with the dashboard and simulator",
+      "caption_5": "Adoption at an event: multiple users trying the solution",
+      "caption_6": "Immersive experience: user using a VR headset as part of the test"
+    },
+    "lightbox": {
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "timeline": {
+      "title": "Highlighted use cases",
+      "subtitle": "Milestones from the most important project and its evolution.",
+      "m1": {
+        "date": "2022",
+        "title": "First production release",
+        "desc": "Initial delivery with core modules for operations and administration."
+      },
+      "m2": {
+        "date": "2023",
+        "title": "Scaling and deployments",
+        "desc": "Stability improvements and deployments for multiple companies."
+      },
+      "m3": {
+        "date": "2024-2025",
+        "title": "Optimization and UX",
+        "desc": "Continuous iteration, performance and user experience with analytics."
+      }
+    }
+  },
+  "seo": {
+    "home_title": "Professional Portfolio",
+    "home_description": "Personal portfolio built with Angular.",
+    "about_title": "About",
+    "about_description": "Career summary, skills and experience.",
+    "projects_title": "Projects",
+    "projects_description": "Selected projects and case studies.",
+    "contact_title": "Contact",
+    "contact_description": "Ways to get in touch."
+  }
+}

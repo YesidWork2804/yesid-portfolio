@@ -1,0 +1,32 @@
+<div class="grid gap-8 items-start" appViewportAnimate="fade-up">
+  <div>
+    <h2 class="heading-lg text-slate-900 dark:text-slate-100 ui-transition">
+      {{ 'contact.title' | translate }}
+    </h2>
+    <p class="mt-4 text-slate-600 dark:text-slate-300 ui-transition">
+      {{ 'contact.subtitle' | translate }}
+    </p>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a class="inline-flex items-center gap-3.5 text-base font-semibold text-primary hover:underline" [href]="links.email" target="_blank" rel="noopener">
+        <img class="h-7 w-7 object-contain" src="/assets/icons/icons8-gmail-nuevo-96.png" alt="Gmail" />
+        {{ 'contact.links.email' | translate }}
+      </a>
+
+      <a class="inline-flex items-center gap-3.5 text-base font-semibold text-primary hover:underline" [href]="links.github" target="_blank" rel="noopener">
+        <img class="h-7 w-7 object-contain" src="/assets/icons/icons8-github-96.png" alt="GitHub" />
+        {{ 'contact.links.github' | translate }}
+      </a>
+
+      <a class="inline-flex items-center gap-3.5 text-base font-semibold text-primary hover:underline" [href]="links.gitlab" target="_blank" rel="noopener">
+        <img class="h-7 w-7 object-contain" src="/assets/icons/icons8-gitlab-96.png" alt="GitLab" />
+        {{ 'contact.links.gitlab' | translate }}
+      </a>
+
+      <a class="inline-flex items-center gap-3.5 text-base font-semibold text-primary hover:underline" [href]="links.linkedin" target="_blank" rel="noopener">
+        <img class="h-7 w-7 object-contain" src="/assets/icons/icons8-linkedin-96.png" alt="LinkedIn" />
+        {{ 'contact.links.linkedin' | translate }}
+      </a>
+    </div>
+  </div>
+</div>

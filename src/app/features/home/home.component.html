@@ -1,0 +1,173 @@
+<div>
+  <section id="home" data-section="home" class="relative overflow-hidden">
+    <div
+      class="absolute inset-0 -z-10 bg-[length:240%_240%] animate-gradientShift"
+      style="background-image: radial-gradient(60% 60% at 15% 20%, rgba(79,70,229,0.25) 0%, transparent 60%), radial-gradient(55% 55% at 85% 30%, rgba(13,148,136,0.22) 0%, transparent 55%), radial-gradient(55% 55% at 45% 85%, rgba(99,102,241,0.18) 0%, transparent 55%);"
+      aria-hidden="true"
+    ></div>
+
+    <app-section-wrapper>
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7" appViewportAnimate="fade-up">
+          <p class="caption text-slate-600 dark:text-slate-300 ui-transition">
+            {{ 'hero.kicker' | translate }}
+          </p>
+
+          <h1 class="mt-3 heading-xl text-slate-900 dark:text-slate-100 ui-transition">
+            <span class="block">{{ 'hero.greeting' | translate }}</span>
+            <span class="block mt-2 text-primary">
+              {{ typewriterText }}<span class="inline-block w-[2px] h-7 align-[-3px] bg-primary ml-1 animate-pulse" aria-hidden="true"></span>
+            </span>
+          </h1>
+
+          <p class="mt-5 body-lg text-slate-600 dark:text-slate-300 ui-transition max-w-2xl">
+            {{ 'hero.subtitle' | translate }}
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3" appViewportAnimate="fade-up">
+            <app-button variant="primary" size="lg" (clicked)="goTo('projects')">
+              {{ 'hero.cta_projects' | translate }}
+            </app-button>
+
+            <a
+              class="inline-flex"
+              href="/assets/cv/CV_Desarrollador_full_stack_Yesid_Hernandez.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              <app-button variant="outline" size="lg">
+                {{ 'hero.cta_cv' | translate }}
+              </app-button>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5" appViewportAnimate="fade-up">
+          <div class="relative mx-auto w-64 h-64 sm:w-72 sm:h-72">
+            <div class="absolute -inset-1 rounded-[28px] bg-gradient-to-r from-primary/50 via-accent/40 to-primary/50 blur-md animate-glowPulse" aria-hidden="true"></div>
+            <div class="relative rounded-[28px] overflow-hidden border border-white/20 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-xl">
+              <div class="aspect-square grid place-items-center">
+                <img
+                  src="/assets/profile/1.png"
+                  [attr.alt]="'hero.photo_alt' | translate"
+                  class="h-full w-full object-cover"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-section-wrapper>
+  </section>
+
+  <section id="about" data-section="about" appViewportAnimate="fade-up">
+    <app-section-wrapper>
+      <app-about-section />
+    </app-section-wrapper>
+  </section>
+
+  <section id="stack" data-section="stack" appViewportAnimate="fade-up">
+    <app-section-wrapper>
+      <app-stack-section />
+    </app-section-wrapper>
+  </section>
+
+  <section id="projects" data-section="projects" appViewportAnimate="fade-up">
+    <app-section-wrapper>
+      <h2 class="heading-lg text-slate-900 dark:text-slate-100 ui-transition">{{ 'sections.projects.title' | translate }}</h2>
+      <p class="mt-4 text-slate-600 dark:text-slate-300 ui-transition max-w-3xl">
+        {{ 'sections.projects.body' | translate }}
+      </p>
+
+      <div class="mt-6">
+        <app-project-filter [(value)]="projectFilter" />
+      </div>
+
+      <div
+        class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
+        @for (p of filteredProjects; track p.id) {
+          <div appViewportAnimate="fade-up" class="ui-transition duration-700">
+            <app-project-card [project]="p" (open)="openProject($event)" />
+          </div>
+        }
+      </div>
+    </app-section-wrapper>
+
+    <app-project-modal
+      [open]="selectedProject !== null"
+      [project]="selectedProject"
+      (closed)="closeProject()"
+    />
+  </section>
+
+  <section id="impact" data-section="impact" class="relative" appViewportAnimate="fade-up">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-primary/10 via-transparent to-accent/10 dark:from-primary/20 dark:via-surface dark:to-accent/15"></div>
+    <app-section-wrapper>
+      <h2 class="heading-lg text-slate-900 dark:text-slate-100 ui-transition">{{ 'impact.title' | translate }}</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-200 ui-transition max-w-3xl">
+        {{ 'impact.subtitle' | translate }}
+      </p>
+
+      <app-impact-metrics [metrics]="impactMetrics" />
+
+      <div class="mt-12">
+        <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 ui-transition">
+          {{ 'impact.gallery.title' | translate }}
+        </div>
+        <p class="mt-2 text-sm text-slate-700 dark:text-slate-200 ui-transition max-w-3xl">
+          {{ 'impact.gallery.subtitle' | translate }}
+        </p>
+        <app-evidence-gallery [items]="evidenceGallery" (open)="openLightbox($event)" />
+      </div>
+
+      <div class="mt-12">
+        <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 ui-transition">
+          {{ 'impact.timeline.title' | translate }}
+        </div>
+        <p class="mt-2 text-sm text-slate-700 dark:text-slate-200 ui-transition max-w-3xl">
+          {{ 'impact.timeline.subtitle' | translate }}
+        </p>
+        <app-use-case-timeline [milestones]="milestones" />
+      </div>
+
+      <div class="mt-12">
+
+      </div>
+    </app-section-wrapper>
+
+    <app-lightbox
+      [open]="lightboxOpen"
+      [items]="evidenceGallery"
+      [(index)]="lightboxIndex"
+      (closed)="closeLightbox()"
+    />
+  </section>
+
+  <section id="experience" data-section="experience" appViewportAnimate="fade-up">
+    <app-section-wrapper>
+      <app-experience-section />
+    </app-section-wrapper>
+  </section>
+
+  <!-- Cursos (pendiente):
+       1) Descomenta este bloque.
+       2) Importa CoursesSectionComponent en home.component.ts y agrégalo al array "imports" del @Component.
+       3) Agrega tus imágenes en src/assets/cursos/.
+  -->
+<!--
+  <section id="courses" data-section="courses" appViewportAnimate="fade-up">
+    <app-section-wrapper>
+      <app-courses-section />
+    </app-section-wrapper>
+  </section> -->
+
+
+  <section id="contact" data-section="contact" appViewportAnimate="fade-up">
+    <app-section-wrapper>
+      <app-contact-section />
+    </app-section-wrapper>
+  </section>
+</div>

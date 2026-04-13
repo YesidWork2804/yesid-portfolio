@@ -1,0 +1,8 @@
+<span [class]="classes">
+  <span class="inline-flex items-center justify-center" [style.color]="tech.color" aria-hidden="true">
+    <span class="h-2 w-2 rounded-full" [style.backgroundColor]="tech.color"></span>
+  </span>
+
+  <span class="inline-flex items-center justify-center" [style.color]="tech.color" aria-hidden="true" [innerHTML]="safeIcon"></span>
+  <span>{{ tech.name }}</span>
+</span>

@@ -1,0 +1,63 @@
+@if (open && active) {
+  <div class="fixed inset-0 z-50">
+    <button
+      type="button"
+      class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
+      (click)="close()"
+      [attr.aria-label]="'impact.lightbox.close' | translate"
+    ></button>
+
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div class="w-full max-w-5xl">
+        <div class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/40 backdrop-blur">
+          <div class="relative">
+            <img
+              [src]="active.src"
+              alt=""
+              (load)="markLoaded(index)"
+              class="w-full max-h-[70vh] object-contain ui-transition"
+              [class.blur-md]="!isLoaded(index)"
+              [class.opacity-70]="!isLoaded(index)"
+            />
+
+            <div class="absolute top-3 right-3 flex gap-2">
+              <button
+                type="button"
+                class="h-10 w-10 grid place-items-center rounded-lg border border-white/10 bg-slate-950/40 text-white hover:bg-slate-950/60 ui-transition"
+                (click)="close()"
+                [attr.aria-label]="'impact.lightbox.close' | translate"
+              >
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div class="text-sm text-white/90">
+              {{ active.captionKey | translate }}
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                class="px-3 py-2 rounded-lg border border-white/10 text-white/90 hover:bg-white/5 ui-transition"
+                (click)="prev()"
+              >
+                {{ 'impact.lightbox.prev' | translate }}
+              </button>
+              <button
+                type="button"
+                class="px-3 py-2 rounded-lg border border-white/10 text-white/90 hover:bg-white/5 ui-transition"
+                (click)="next()"
+              >
+                {{ 'impact.lightbox.next' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

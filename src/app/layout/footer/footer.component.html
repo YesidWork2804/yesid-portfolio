@@ -1,0 +1,41 @@
+<footer class="border-t border-slate-200/70 dark:border-slate-800 ui-transition">
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <div class="flex flex-col sm:flex-row gap-6 sm:items-center sm:justify-between">
+      <div class="text-sm text-slate-500 dark:text-slate-400 ui-transition">
+        <div>© {{ year }} Yesid Hernández</div>
+        <div class="text-xs mt-1">{{ 'footer.credits' | translate }}</div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <a
+          class="text-sm px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+          href="https://github.com/YesidWork2804"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ 'footer.github' | translate }}
+        </a>
+        <a
+          class="text-sm px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+          href="https://gitlab.com/yesidwork2804"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ 'footer.gitlab' | translate }}
+        </a>
+
+        <button
+          type="button"
+          (click)="copyEmail()"
+          class="text-sm px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 ui-transition hover:bg-slate-50 dark:hover:bg-surface-100"
+        >
+          <span class="font-medium">{{ 'footer.email' | translate }}:</span>
+          <span class="ml-1">{{ email }}</span>
+          @if (copied) {
+            <span class="ml-2 text-xs text-primary">{{ 'footer.copied' | translate }}</span>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,11 @@
+<div class="flex flex-wrap gap-2">
+  @for (f of filters; track f.id) {
+    <button
+      type="button"
+      (click)="set(f.id)"
+      [class]="classes(value === f.id)"
+    >
+      <span class="relative z-10">{{ f.labelKey | translate }}</span>
+    </button>
+  }
+</div>

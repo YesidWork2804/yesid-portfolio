@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  We keep global CSS minimal and push most styling to Tailwind utilities.
+  ThemeService toggles the `dark` class on <html>, so Tailwind dark variants work.
+*/
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-slate-900 dark:bg-surface dark:text-slate-100;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.9);
+  outline-offset: 3px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .heading-xl {
+    @apply text-heading-xl;
+  }
+
+  .heading-lg {
+    @apply text-heading-lg;
+  }
+
+  .body-lg {
+    @apply text-body-lg;
+  }
+
+  .caption {
+    @apply text-caption;
+  }
+
+  .ui-transition {
+    @apply transition-colors duration-300;
+  }
+}

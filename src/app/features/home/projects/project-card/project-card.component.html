@@ -1,0 +1,59 @@
+<button
+  type="button"
+  (click)="onOpen()"
+  class="group w-full text-left rounded-2xl border border-slate-200/70 dark:border-slate-800 bg-white dark:bg-surface-100 ui-transition p-0 overflow-hidden"
+>
+  <div class="[perspective:900px]">
+    <div
+      class="relative h-full transform-gpu transition-transform duration-300 [transform-style:preserve-3d] group-hover:[transform:rotateX(2deg)_rotateY(-4deg)_translateY(-2px)]"
+    >
+      <div class="h-40 sm:h-44 w-full bg-slate-100 dark:bg-surface overflow-hidden">
+        @if (cover) {
+          <img
+            [src]="cover"
+            alt=""
+            class="h-full w-full object-contain opacity-90 group-hover:opacity-100 ui-transition"
+            loading="lazy"
+          />
+        } @else {
+          <div class="h-full w-full"></div>
+        }
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent"></div>
+      </div>
+
+      <div class="p-5">
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <div class="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100 ui-transition truncate">
+              {{ project.title | translate }}
+            </div>
+            <div class="mt-2 text-sm text-slate-600 dark:text-slate-300 ui-transition overflow-hidden max-h-10">
+              {{ project.description | translate }}
+            </div>
+          </div>
+
+          @if (project.featured) {
+            <span class="shrink-0 text-[11px] px-2 py-1 rounded-full bg-accent/10 text-accent border border-accent/20">
+              {{ 'projects.featured' | translate }}
+            </span>
+          }
+        </div>
+
+        <div class="mt-4 flex flex-wrap gap-2">
+          @for (t of project.techStack; track t.name) {
+            <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-slate-200/70 dark:border-slate-700 text-[11px] text-slate-700 dark:text-slate-200">
+              <app-tech-icon [name]="t.name" [size]="18" />
+              <span>{{ t.name }}</span>
+            </span>
+          }
+        </div>
+
+        <div class="mt-4 text-xs text-slate-500 dark:text-slate-400 ui-transition">
+          {{ ('projects.categories.' + project.category) | translate }}
+        </div>
+      </div>
+
+      <span class="pointer-events-none absolute inset-0 ring-1 ring-slate-200/40 dark:ring-slate-700/40 rounded-2xl"></span>
+    </div>
+  </div>
+</button>
