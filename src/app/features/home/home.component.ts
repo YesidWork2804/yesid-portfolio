@@ -147,9 +147,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     const reduced =
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const smallScreen =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(max-width: 640px)').matches;
     let phrases = this.getTypewriterPhrases();
 
-    if (reduced) {
+    if (reduced || smallScreen) {
       this.typewriterText = phrases[0] ?? '';
       return;
     }
