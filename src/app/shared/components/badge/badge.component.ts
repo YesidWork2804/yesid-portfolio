@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { inject } from '@angular/core';
+import { inject, SecurityContext } from '@angular/core';
 
 export type TechBadge = {
   name: string;
@@ -21,10 +21,12 @@ export class TechBadgeComponent {
   @Input({ required: true }) tech!: TechBadge;
 
   get safeIcon(): SafeHtml {
-    // Architectural decision:
-    // SVG strings coming from our own assets/icons are considered trusted.
-    // We bypass sanitization so inline SVG renders consistently.
-    return this.sanitizer.bypassSecurityTrustHtml(this.tech.icon);
+    // Security fix: use Angular's built-in sanitizer instead of bypassing it.
+    // DomSanitizer.sanitize() strips dangerous elements (script, event handlers)
+    // while preserving safe SVG markup.
+    const sanitized =
+      this.sanitizer.sanitize(SecurityContext.HTML, this.tech.icon) ?? '';
+    return this.sanitizer.bypassSecurityTrustHtml(sanitized);
   }
 
   get classes(): string {
