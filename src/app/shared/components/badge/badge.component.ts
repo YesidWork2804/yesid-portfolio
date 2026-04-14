@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { inject } from '@angular/core';
 
 export type TechBadge = {
   name: string;
@@ -16,16 +14,7 @@ export type TechBadge = {
   templateUrl: './badge.component.html',
 })
 export class TechBadgeComponent {
-  private readonly sanitizer = inject(DomSanitizer);
-
   @Input({ required: true }) tech!: TechBadge;
-
-  get safeIcon(): SafeHtml {
-    // Architectural decision:
-    // SVG strings coming from our own assets/icons are considered trusted.
-    // We bypass sanitization so inline SVG renders consistently.
-    return this.sanitizer.bypassSecurityTrustHtml(this.tech.icon);
-  }
 
   get classes(): string {
     return [
